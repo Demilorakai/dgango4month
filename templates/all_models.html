@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Детальное Представление</title>
+</head>
+<body>
+
+{#{% for shows in shows %}#}
+    <div>
+{#    <p><img src="{{ show.image.url }}" alt="..."></p>#}
+    <h2>Название: {{ shows.name }}</h2>
+    <p>Двигатель: {{ shows.engine }}</p>
+    <p>Мощьность: {{ shows.hp }}</p>
+    <p>Ньютон - метр: {{ shows.nm }}</p>
+    <p>Серия : {{ shows.series }}</p>
+        <a href="/all_brands/{{shows.id }}/update/">Изменить модель </a>
+        <a href="/all_brands/{{shows.id }}/add/">Добавить комментарий </a>
+    </div>
+<div>
+
+        {% for i in shows.model_comment.all %}
+                <h2>Комментарии:</h2><p>{{ i.text }}</p>
+    {% endfor %}
+
+            {% for i in shows.model_comment.all %}
+              <p>Автор:</p><p>{{ i.author }}</p>
+        {% endfor %}
+</div>
+</body>
+</html>

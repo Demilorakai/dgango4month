@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Логин</title>
+</head>
+<body>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+                <button class="btn btn-outline-info" type="submit" value="" >Войти </button>
+        </form>
+                Нужен аккаунт? <a class="ml-2" href="{% url 'users:register' %}">Регистрация</a>
+</body>
+</html>
